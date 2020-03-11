@@ -67,7 +67,7 @@ export class RegisterComponent implements OnInit {
 
   setSelectQualifications() {
     console.log(this.qualificationsId)
-
+    this.selectQualifications = [];
     this.qualifications.forEach(element => {
       if (element.category_id == this.qualificationsId) {
         let data = {

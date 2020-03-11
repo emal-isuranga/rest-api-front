@@ -52,7 +52,7 @@
                             [selected]="categor.id == categoryId">{{categor.name}}</option>
                     </select>
                 </div>
-                <div class="col-2"></div>
+                <div class="col-1"></div>
                 <div class="col-3">
                     <h5>Select Qualifications</h5>
                     <select class="form-control form-control-lg" [(ngModel)]="qualificationsId"
@@ -62,7 +62,22 @@
                             [selected]="qualification.id == qualificationsId">{{qualification.name}}</option>
                     </select>
                 </div>
+                <div class="col-1"></div>
+                <div class="col-3 row">
+                    <h5 style="margin-bottom: 5px;">Enter Student Id</h5>
+                    <div class="col-6">
+                        <input type="text" class="form-control form-control-lg" placeholder="Student Id" id="stId"
+                            [(ngModel)]="searchId" style="height: 35px;">
+                    </div>
+                    <div class="col-1"></div>
+                    <div class="col-4">
+                        <button type="submit" class="btn btn-primary" (click)="searchStudentId()">Search</button>
+                    </div>
+
+
+                </div>
             </div>
+
 
             <div class="table100">
                 <table>

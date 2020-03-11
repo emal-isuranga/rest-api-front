@@ -17,6 +17,7 @@ export class ManagerComponent implements OnInit {
   public isApproved: boolean = false;
   public categoryId: number;
   public qualificationsId: number;
+  public searchId: number;
 
   constructor(
     private globalService: GenaralService,
@@ -123,7 +124,25 @@ export class ManagerComponent implements OnInit {
       value: this.qualificationsId
     }
 
-    console.log(data)
+    this.globalService.filterStudent(data).subscribe(serverResp => {
+      if (serverResp['status']) {
+        this.approvedStudent = serverResp['student_list']
+      } else {
+        swal.fire(
+          'Empty Value!',
+          'Not any data for this qualifications!',
+          'warning'
+        );
+      }
+    });
+  }
+
+  searchStudentId() {
+    let data = {
+      key: 'id',
+      value: this.searchId
+    }
+
 
     this.globalService.filterStudent(data).subscribe(serverResp => {
       if (serverResp['status']) {
